@@ -41,7 +41,7 @@ const links: LinkItem[] = [
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>MYG COMPANY · PERFUMERIA | Link to Bio</title>
 		
@@ -57,7 +57,7 @@ const links: LinkItem[] = [
 			<!-- Fondo con la imagen del arco y modelo desplazada hacia arriba -->
 			<div class="hero-bg absolute inset-0 pointer-events-none select-none overflow-hidden opacity-0">
 				<img 
-					src="/myg-hero.jpg" 
+					src={`${import.meta.env.BASE_URL}/myg-hero.jpg`} 
 					alt="MYG Company Fondo" 
 					class="w-full h-auto object-cover object-top opacity-95 -translate-y-20 sm:-translate-y-24 scale-110"
 				/>
@@ -73,7 +73,7 @@ const links: LinkItem[] = [
 			<!-- Logo e información de la marca -->
 			<header class="brand-header relative z-10 w-full flex flex-col items-center text-center px-2 opacity-0">
 				<img 
-					src="/myg-company-logo-transparente.png" 
+					src={`${import.meta.env.BASE_URL}/myg-company-logo-transparente.png`} 
 					alt="MYG Company Perfumeria" 
 					class="brand-logo w-60 sm:w-64 max-w-full drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] mb-3"
 				/>
