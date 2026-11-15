@@ -1,0 +1,261 @@
+---
+import '../../styles/theme.css';
+
+interface LinkItem {
+  title: string;
+  url: string;
+  icon: 'whatsapp' | 'store' | 'card' | 'pin';
+  isCta?: boolean;
+  badge?: string;
+}
+
+const whatsappUrl = 'https://wa.me/573232299659?text=%C2%A1Hola!%20Quisiera%20recibir%20asesor%C3%ADa%20personalizada%20de%20MYG%20Perfumer%C3%ADa';
+
+const links: LinkItem[] = [
+  {
+    title: 'ASESORÍA POR WHATSAPP',
+    url: whatsappUrl,
+    icon: 'whatsapp',
+    isCta: true,
+  },
+  {
+    title: 'TIENDA VIRTUAL',
+    badge: 'PRÓXIMAMENTE',
+    url: '#',
+    icon: 'store',
+  },
+  {
+    title: 'PAGA A CUOTAS · SISTECRÉDITO Y ADDI',
+    url: '#',
+    icon: 'card',
+  },
+  {
+    title: 'VISÍTANOS EN PITAL',
+    url: '#',
+    icon: 'pin',
+  },
+];
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>MYG COMPANY · PERFUMERIA | Link to Bio</title>
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-[#01351C] text-[#F6F8F6] min-h-screen selection:bg-[#E2B53F] selection:text-[#01351C]">
+		<!-- Contenedor central simulación móvil/linktree -->
+		<div class="relative max-w-md mx-auto min-h-screen flex flex-col items-center px-5 py-8 shadow-2xl overflow-hidden bg-[#01351C]">
+			
+			<!-- Fondo con la imagen del arco y modelo desplazada hacia arriba -->
+			<div class="hero-bg absolute inset-0 pointer-events-none select-none overflow-hidden opacity-0">
+				<img 
+					src="/myg-hero.jpg" 
+					alt="MYG Company Fondo" 
+					class="w-full h-auto object-cover object-top opacity-95 -translate-y-20 sm:-translate-y-24 scale-110"
+				/>
+				<!-- Capa verde difuminada que sube hasta la mitad del viewport fundiendo la imagen -->
+				<div class="absolute inset-0 bg-gradient-to-b from-transparent from-5% via-[#01351C]/90 via-30% to-[#01351C] to-50%"></div>
+				<!-- Capa sólida que cubre desde el 50% hacia abajo -->
+				<div class="absolute top-[48%] bottom-0 left-0 right-0 bg-[#01351C]"></div>
+			</div>
+
+			<!-- Espaciador para la zona de la modelo en el arco -->
+			<div class="relative z-10 w-full h-[340px] sm:h-[378px]"></div>
+
+			<!-- Logo e información de la marca -->
+			<header class="brand-header relative z-10 w-full flex flex-col items-center text-center px-2 opacity-0">
+				<img 
+					src="/myg-company-logo-transparente.png" 
+					alt="MYG Company Perfumeria" 
+					class="brand-logo w-60 sm:w-64 max-w-full drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] mb-3"
+				/>
+
+				<h1 class="brand-title font-['Cinzel',serif] tracking-wider text-sm sm:text-base font-bold text-white max-w-xs leading-snug drop-shadow-md uppercase mb-3">
+					Te ayudamos a encontrar el aroma que más habla de ti
+				</h1>
+
+				<div class="brand-badges flex flex-col items-center gap-1.5 text-xs tracking-wider text-[#E2B53F] font-medium uppercase drop-shadow">
+					<div class="flex items-center gap-1.5">
+						<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+							<circle cx="12" cy="10" r="3"/>
+						</svg>
+						<span>Neiva · Pital, Huila</span>
+					</div>
+					<div class="flex items-center gap-1.5">
+						<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+							<path d="M15 18H9"/>
+							<path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+							<circle cx="17" cy="18" r="2"/>
+							<circle cx="7" cy="18" r="2"/>
+						</svg>
+						<span>Envíos a todo Colombia</span>
+					</div>
+				</div>
+			</header>
+
+			<!-- Lista de Botones / Enlaces con mejor espaciado y padding amplio -->
+			<main class="relative z-10 w-full flex flex-col gap-3.5 mt-7 mb-9">
+				{links.map((link) => {
+					if (link.isCta) {
+						return (
+							<a 
+								href={link.url}
+								target={link.url.startsWith('http') ? '_blank' : undefined}
+								rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+								class="link-item opacity-0 w-full flex items-center justify-center gap-3.5 py-4 px-6 rounded-xl bg-gradient-to-r from-[#F0CA62] via-[#DFAB33] to-[#C4901C] text-[#132219] font-bold text-[13px] tracking-wider uppercase shadow-[0_6px_20px_rgba(200,147,31,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-[#F7DC7A]/70"
+							>
+								{/* Official WhatsApp Logo */}
+								<svg class="w-5 h-5 fill-current flex-shrink-0" viewBox="0 0 24 24">
+									<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.44C8.95 7.44 8.68 7.5 8.46 7.74C8.24 7.97 7.62 8.56 7.62 9.76C7.62 10.96 8.5 12.12 8.62 12.28C8.75 12.44 10.33 14.88 12.76 15.93C13.34 16.18 13.79 16.33 14.14 16.44C14.73 16.63 15.26 16.6 15.68 16.54C16.15 16.47 17.13 15.95 17.33 15.38C17.54 14.81 17.54 14.33 17.48 14.22C17.41 14.12 17.25 14.06 17 13.94C16.76 13.82 15.54 13.22 15.31 13.14C15.09 13.06 14.92 13.02 14.76 13.26C14.6 13.5 14.13 14.06 13.99 14.22C13.85 14.38 13.71 14.4 13.47 14.28C13.22 14.16 12.43 13.9 11.5 13.07C10.77 12.42 10.28 11.62 10.14 11.38C10 11.14 10.12 11.01 10.24 10.89C10.35 10.78 10.49 10.6 10.61 10.46C10.73 10.32 10.77 10.22 10.85 10.06C10.93 9.9 10.89 9.76 10.83 9.64C10.77 9.52 10.31 8.38 10.12 7.92C9.93 7.47 9.74 7.53 9.59 7.52C9.45 7.52 9.28 7.44 9.11 7.44Z"/>
+								</svg>
+								<span>{link.title}</span>
+							</a>
+						);
+					}
+
+					return (
+						<a 
+							href={link.url}
+							class="link-item opacity-0 w-full flex items-center justify-start gap-4 py-4 px-5 rounded-xl bg-[#012B16]/85 backdrop-blur-sm border border-[#C8931F]/40 text-[#E9C25A] hover:text-white hover:border-[#F7DC7A] hover:bg-[#023E20] text-[12.5px] font-semibold tracking-wider uppercase shadow-[0_3px_10px_rgba(0,0,0,0.3)] hover:scale-[1.01] active:scale-[0.99] transition-all duration-200"
+						>
+							<span class="text-[#E2B53F] flex items-center justify-center w-5 flex-shrink-0">
+								{link.icon === 'store' && (
+									<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+										<path d="M3 6h18"/>
+										<path d="M16 10a4 4 0 0 1-8 0"/>
+									</svg>
+								)}
+								{link.icon === 'card' && (
+									<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<rect width="20" height="14" x="2" y="5" rx="2"/>
+										<line x1="2" x2="22" y1="10" y2="10"/>
+									</svg>
+								)}
+								{link.icon === 'wallet' && (
+									<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/>
+										<path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/>
+									</svg>
+								)}
+								{link.icon === 'pin' && (
+									<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+										<circle cx="12" cy="10" r="3"/>
+									</svg>
+								)}
+							</span>
+							<span class="flex-1 text-center pr-5 flex items-center justify-center gap-2 flex-wrap">
+								<span>{link.title}</span>
+								{link.badge && (
+									<span class="text-[10px] tracking-widest font-bold py-0.5 px-2 rounded-full bg-[#E2B53F]/15 border border-[#E2B53F]/60 text-[#F7DC7A]">
+										{link.badge}
+									</span>
+								)}
+							</span>
+						</a>
+					);
+				})}
+			</main>
+
+			<!-- Separador ornamental con rombo -->
+			<div class="ornament relative z-10 w-full flex items-center justify-center gap-3 my-4 opacity-0">
+				<div class="h-[1px] w-24 bg-gradient-to-r from-transparent to-[#C8931F]/50"></div>
+				<div class="w-1.5 h-1.5 rotate-45 bg-[#E2B53F]"></div>
+				<div class="h-[1px] w-24 bg-gradient-to-l from-transparent to-[#C8931F]/50"></div>
+			</div>
+
+			<!-- Redes Sociales circulares con borde fino -->
+			<footer class="social-footer relative z-10 w-full flex items-center justify-center gap-4 mt-2 mb-4 opacity-0">
+				{/* Instagram */}
+				<a 
+					href="https://www.instagram.com/myg_company/" 
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Instagram"
+					class="social-btn w-10 h-10 rounded-full border border-[#C8931F]/60 flex items-center justify-center text-[#E2B53F] hover:bg-[#C8931F] hover:text-[#01351C] transition-all duration-200"
+				>
+					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+						<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+						<line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+					</svg>
+				</a>
+
+				{/* Facebook */}
+				<a 
+					href="https://web.facebook.com/mygcompanycol" 
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Facebook"
+					class="social-btn w-10 h-10 rounded-full border border-[#C8931F]/60 flex items-center justify-center text-[#E2B53F] hover:bg-[#C8931F] hover:text-[#01351C] transition-all duration-200"
+				>
+					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+					</svg>
+				</a>
+
+				{/* TikTok */}
+				<a 
+					href="https://www.tiktok.com/@perfumeriamygcompany" 
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="TikTok"
+					class="social-btn w-10 h-10 rounded-full border border-[#C8931F]/60 flex items-center justify-center text-[#E2B53F] hover:bg-[#C8931F] hover:text-[#01351C] transition-all duration-200"
+				>
+					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+					</svg>
+				</a>
+			</footer>
+		</div>
+
+		<!-- Script de animación Motion (Framer Motion Web) -->
+		<script>
+			import { animate, stagger } from 'motion';
+
+			// 1. Entrada suave del fondo
+			animate('.hero-bg', 
+				{ opacity: [0, 1] }, 
+				{ duration: 0.8, easing: 'ease-out' }
+			);
+
+			// 2. Aparición del Header (Logo, Título y Badges)
+			animate('.brand-header',
+				{ opacity: [0, 1], y: [16, 0] },
+				{ duration: 0.7, delay: 0.2, easing: [0.22, 1, 0.36, 1] }
+			);
+
+			// 3. Entrada escalonada orgánica (stagger) de los botones sin saturar
+			animate('.link-item',
+				{ opacity: [0, 1], y: [14, 0] },
+				{ 
+					duration: 0.5, 
+					delay: stagger(0.08, { startDelay: 0.35 }),
+					easing: [0.22, 1, 0.36, 1] 
+				}
+			);
+
+			// 4. Separador ornamental y redes sociales
+			animate('.ornament',
+				{ opacity: [0, 1], scale: [0.92, 1] },
+				{ duration: 0.5, delay: 0.85, easing: 'ease-out' }
+			);
+
+			animate('.social-footer',
+				{ opacity: [0, 1], y: [10, 0] },
+				{ duration: 0.5, delay: 0.95, easing: [0.22, 1, 0.36, 1] }
+			);
+		</script>
+	</body>
+</html>
