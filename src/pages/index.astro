@@ -8,10 +8,12 @@ interface LinkItem {
   isCta?: boolean;
 }
 
+const whatsappUrl = 'https://wa.me/573232299659?text=%C2%A1Hola!%20Quisiera%20recibir%20asesor%C3%ADa%20personalizada%20de%20MYG%20Perfumer%C3%ADa';
+
 const links: LinkItem[] = [
   {
     title: 'ASESORÍA POR WHATSAPP',
-    url: 'https://wa.me/',
+    url: whatsappUrl,
     icon: 'whatsapp',
     isCta: true,
   },
@@ -131,6 +133,8 @@ const links: LinkItem[] = [
 						return (
 							<a 
 								href={link.url}
+								target={link.url.startsWith('http') ? '_blank' : undefined}
+								rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
 								class="link-item opacity-0 w-full flex items-center justify-center gap-3 py-3 px-4 rounded-lg bg-gradient-to-r from-[#F0CA62] via-[#DFAB33] to-[#C4901C] text-[#132219] font-bold text-xs tracking-wider uppercase shadow-[0_4px_16px_rgba(200,147,31,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-[#F7DC7A]/60"
 							>
 								{/* WhatsApp Icon */}
@@ -249,7 +253,9 @@ const links: LinkItem[] = [
 
 				{/* WhatsApp */}
 				<a 
-					href="#" 
+					href={whatsappUrl} 
+					target="_blank"
+					rel="noopener noreferrer"
 					aria-label="WhatsApp"
 					class="social-btn w-10 h-10 rounded-full border border-[#C8931F]/60 flex items-center justify-center text-[#E2B53F] hover:bg-[#C8931F] hover:text-[#01351C] transition-all duration-200"
 				>
