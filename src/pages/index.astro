@@ -4,7 +4,7 @@ import '../styles/theme.css';
 interface LinkItem {
   title: string;
   url: string;
-  icon: 'whatsapp' | 'bottle' | 'card' | 'pin';
+  icon: 'whatsapp' | 'store' | 'card' | 'pin';
   isCta?: boolean;
   badge?: string;
 }
@@ -22,7 +22,7 @@ const links: LinkItem[] = [
     title: 'TIENDA VIRTUAL',
     badge: 'PRÓXIMAMENTE',
     url: '#',
-    icon: 'bottle',
+    icon: 'store',
   },
   {
     title: 'PAGA A CUOTAS · SISTECRÉDITO Y ADDI',
@@ -129,11 +129,11 @@ const links: LinkItem[] = [
 							class="link-item opacity-0 w-full flex items-center justify-start gap-4 py-4 px-5 rounded-xl bg-[#012B16]/85 backdrop-blur-sm border border-[#C8931F]/40 text-[#E9C25A] hover:text-white hover:border-[#F7DC7A] hover:bg-[#023E20] text-[12.5px] font-semibold tracking-wider uppercase shadow-[0_3px_10px_rgba(0,0,0,0.3)] hover:scale-[1.01] active:scale-[0.99] transition-all duration-200"
 						>
 							<span class="text-[#E2B53F] flex items-center justify-center w-5 flex-shrink-0">
-								{link.icon === 'bottle' && (
+								{link.icon === 'store' && (
 									<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M10 2h4"/>
-										<path d="M10 5h4"/>
-										<rect width="14" height="15" x="5" y="7" rx="3"/>
+										<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+										<path d="M3 6h18"/>
+										<path d="M16 10a4 4 0 0 1-8 0"/>
 									</svg>
 								)}
 								{link.icon === 'card' && (
