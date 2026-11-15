@@ -127,18 +127,18 @@ const links: LinkItem[] = [
 						return (
 							<a 
 								href={link.url}
-								class="link-item opacity-0 w-full flex items-center justify-center gap-5 py-3 px-5 rounded-xl bg-white/95 backdrop-blur-sm border-2 border-[#E2B53F] shadow-[0_4px_14px_rgba(0,0,0,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+								class="link-item opacity-0 w-full flex items-center justify-center gap-6 py-3.5 px-5 rounded-xl bg-[#012B16]/85 backdrop-blur-sm border border-[#C8931F]/40 hover:border-[#F7DC7A] hover:bg-[#023E20] shadow-[0_3px_10px_rgba(0,0,0,0.3)] hover:scale-[1.01] active:scale-[0.99] transition-all duration-200"
 							>
-								{/* Logo Sistecrédito Original */}
+								{/* Logo Sistecrédito adaptado en brillo para fondo oscuro */}
 								<img 
 									src="/sistecredito.png" 
 									alt="Sistecrédito" 
-									class="h-6 sm:h-7 w-auto object-contain"
+									class="h-6 sm:h-7 w-auto object-contain brightness-0 invert"
 								/>
-								<div class="h-6 w-[1.5px] bg-gray-300"></div>
-								{/* Logo Addi Original con su píldora */}
-								<div class="flex items-center bg-[#3C6AF0] px-3.5 py-1 rounded-full shadow-sm">
-									<span class="text-white font-extrabold text-sm sm:text-base tracking-tight font-sans">addi</span>
+								<div class="h-5 w-[1px] bg-[#C8931F]/40"></div>
+								{/* Logo Addi */}
+								<div class="flex items-center bg-[#3C6AF0] px-3.5 py-0.5 rounded-full shadow-sm">
+									<span class="text-white font-extrabold text-xs sm:text-sm tracking-tight font-sans">addi</span>
 								</div>
 							</a>
 						);
