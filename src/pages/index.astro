@@ -6,6 +6,7 @@ interface LinkItem {
   url: string;
   icon: 'whatsapp' | 'bottle' | 'card' | 'pin';
   isCta?: boolean;
+  badge?: string;
 }
 
 const whatsappUrl = 'https://wa.me/573232299659?text=%C2%A1Hola!%20Quisiera%20recibir%20asesor%C3%ADa%20personalizada%20de%20MYG%20Perfumer%C3%ADa';
@@ -18,7 +19,8 @@ const links: LinkItem[] = [
     isCta: true,
   },
   {
-    title: 'CATÁLOGO DE PERFUMES',
+    title: 'TIENDA VIRTUAL',
+    badge: 'PRÓXIMAMENTE',
     url: '#',
     icon: 'bottle',
   },
@@ -153,7 +155,14 @@ const links: LinkItem[] = [
 									</svg>
 								)}
 							</span>
-							<span class="flex-1 text-center pr-5">{link.title}</span>
+							<span class="flex-1 text-center pr-5 flex items-center justify-center gap-2 flex-wrap">
+								<span>{link.title}</span>
+								{link.badge && (
+									<span class="text-[10px] tracking-widest font-bold py-0.5 px-2 rounded-full bg-[#E2B53F]/15 border border-[#E2B53F]/60 text-[#F7DC7A]">
+										{link.badge}
+									</span>
+								)}
+							</span>
 						</a>
 					);
 				})}
